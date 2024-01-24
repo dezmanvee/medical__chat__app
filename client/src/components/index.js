@@ -7,5 +7,6 @@ export {default as CreateChannel} from "./CreateChannel";
 export {default as EditChannel} from "./EditChannel";
 export {default as TeamMessage} from "./TeamMessage";
 export {default as ChannelInner} from "./ChannelInner";
+export {default as ResultsDropdown} from "./ResultsDropdown";
 export {default as UserList} from "./UserList";
 export {default as Auth} from "./Auth";

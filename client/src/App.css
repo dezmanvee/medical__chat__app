@@ -1,6 +1,6 @@
 :root {
     --primary-color: #7731d8;
-    --primary-color-alpha: #005fff1a;
+    --primary-color-alpha: rgb(79, 61, 88);
   }
   
   html,
@@ -70,7 +70,7 @@
   
   .auth__form-container_fields-content_input label {
     margin-bottom: 0.45rem;
-    color: rgb(61, 79, 88);
+    color: rgb(79, 61, 88);
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.7px;
@@ -148,9 +148,11 @@
     color: #000;
     font-weight: 500;
   }
-  
+  /* ============================
+    TO BE EDITED
+  ============================= */
   .auth__form-container_fields-account span {
-    color: #05245a;
+    color: rgb(79, 61, 88);   
     cursor: pointer;
     font-weight: 700;
   }
@@ -939,6 +941,8 @@
     display: flex;
     flex-direction: column;
     z-index: 2;
+    background: #7731d8;
+    height: 100%;
   }
   
   .team-channel-list__message {

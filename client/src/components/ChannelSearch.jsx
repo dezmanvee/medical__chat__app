@@ -1,14 +1,22 @@
 import { useState, useEffect } from "react";
 import { useChatContext } from "stream-chat-react";
-
+import {ResultsDropdown} from "./";
 import { SearchIcon } from "../assets";
 
-const ChannelSearch = () => {
+const ChannelSearch = ({setToggleContainer}) => {
   const {client, setActiveChannel} = useChatContext();
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [teamChannel, setTeamChannel] = useState([]);
-  const [directChannel, setDirectChannel] = useState([]);
+  const [teamChannels, setTeamChannels] = useState([]);
+  const [directChannels, setDirectChannels] = useState([]);
+
+  useEffect(() => {
+    if (!query) {
+      setTeamChannels([]);
+      setDirectChannels([]);
+    }
+
+  }, [query])
 
   const getChannels = async (text) => {
     try {
@@ -23,6 +31,15 @@ const ChannelSearch = () => {
           name: {$autocomplete: text}
         })
 
+        const [channels, {users}] = await Promise.all([channelResponse, userResponse]);
+
+        if (channels.length) {
+          return  setTeamChannels(channels);
+        }
+        if (users.length){
+          return setDirectChannels(users);
+        }
+
     } catch (error) {
         setQuery('')
     }
@@ -35,6 +52,13 @@ const ChannelSearch = () => {
     setQuery(e.target.value)
     getChannels(e.target.value)
   };
+
+  const setChannel = (channel) => {
+    setQuery('');
+    setActiveChannel(channel);
+
+  }
+
   return (
     <div className="channel-search__container">
       <div className="channel-search__input__wrapper">
@@ -49,6 +73,16 @@ const ChannelSearch = () => {
           onChange={onSearch}
         />
       </div>
+      {query && (
+        <ResultsDropdown 
+          teamChannels={teamChannels}
+          directChannels={directChannels}
+          isLoading={isLoading}
+          setChannel={setChannel}
+          setQuery={setQuery}
+          setToggleContainer={setToggleContainer}
+        /> 
+      )}
     </div>
   );
 };
