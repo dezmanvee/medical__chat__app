@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 app.get('/', (req, res) => {
-    res.send("Hello World!")
+    res.send("Hello, Welcome to Our Medical Chat App Server-side!")
 })
 
 app.post('/', (req, res) => {

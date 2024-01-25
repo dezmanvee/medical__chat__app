@@ -1,0 +1,2 @@
+buildCommand: cd server && npm install
+startCommand: cd server && npm run dev
