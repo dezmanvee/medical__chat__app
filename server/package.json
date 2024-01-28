@@ -12,6 +12,7 @@
   },
   "scripts": {
     "start": "node index.js",
+    "build": "npm build",
     "dev": "nodemon index.js"
   }
 }
