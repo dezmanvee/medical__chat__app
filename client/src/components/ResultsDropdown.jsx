@@ -14,7 +14,7 @@ const channelByUser = async ({ client, setActiveChannel, channel, setChannel }) 
 
   const newChannel = client.channel('messaging', { members: [channel.id, client.userID] });
   
-  setChannel(newChannel)
+  setChannel(newChannel);
 
   return setActiveChannel(newChannel);
 };
