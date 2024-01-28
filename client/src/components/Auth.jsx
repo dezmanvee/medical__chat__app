@@ -27,7 +27,7 @@ const Auth = () => {
         
         const {username, password, phoneNumber, avatarURL} = form;
 
-        const URL = 'http://localhost:5000/auth';
+        const URL = 'https://medlyapp.onrender.com/auth';
 
         const {data: {token, userId, hashedPassword, fullName}} = await axios.post(`${URL}/${isSignup ? "signup" : "login"}`, {
             fullName: form.fullName, username, password, phoneNumber, avatarURL, 
