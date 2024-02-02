@@ -3,6 +3,8 @@
 ## Overview
 
 Welcome to the Medical Chat App, a full-stack application that facilitates communication in a medical context. This application allows medical professionals to securely chat with each other and provides a platform for collaborative discussions.
+
+
 ![Client Thumbnail](./client/src/assets/Thumbnail.png)
 
 ## Features
